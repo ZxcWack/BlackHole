@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlackHole - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Добро пожаловать, <span id="user"></span>!</h1>
+  </div>
+  <script>
+    const username = localStorage.getItem('username');
+    document.getElementById('user').innerText = username;
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library WebApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Library</h1>
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+  </div>
+  <script>
+    let tg = window.Telegram.WebApp;
+
+    document.getElementById('button1').addEventListener('click', function() {
+      tg.sendData('Button 1 clicked');
+    });
+
+    document.getElementById('button2').addEventListener('click', function() {
+      tg.sendData('Button 2 clicked');
+    });
+  </script>
+</body>
+</html>

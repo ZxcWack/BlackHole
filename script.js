@@ -1,20 +1,25 @@
-document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-  
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-  
-    if (username && password) {
-      // Сохраняем логин и пароль в localStorage
-      localStorage.setItem('username', username);
-      localStorage.setItem('password', password);
-  
-      alert('Регистрация прошла успешно!');
-  
-      // Перенаправление на главную страницу (например, home.html)
-      window.location.href = 'home.html';
-    } else {
-      alert('Пожалуйста, заполните все поля.');
-    }
-  });
-  
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const login = document.getElementById('login').value;
+  const password1 = document.getElementById('password1').value;
+  const password2 = document.getElementById('password2').value;
+
+  if (password1 !== password2) {
+      alert('Пароли не совпадают!');
+      return;
+  }
+
+  const users = JSON.parse(localStorage.getItem('users')) || {};
+
+  if (users[login]) {
+      alert('Пользователь с таким логином уже существует!');
+      return;
+  }
+
+  users[login] = password1;
+  localStorage.setItem('users', JSON.stringify(users));
+
+  alert('Регистрация успешна!');
+  window.location.href = 'login.html';
+});
